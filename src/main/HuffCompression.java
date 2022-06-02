@@ -1,11 +1,22 @@
-package teste;
+package main;
 import java.io.*;
+
+import controllers.ListSymbolController;
 import operacoes.Node;
 import operacoes.Heap;
 import operacoes.listaSimb;
 
 
-public class huffTeste {
+public class HuffCompression {
+	
+	public static String toBinary(int x, int len){
+        if (len > 0){
+            return String.format("%" + len + "s",
+                            Integer.toBinaryString(x)).replaceAll(" ", "0");
+        }
+        
+        return null;
+    }
 	
 	public static String codeBin(String texto){
 
@@ -15,7 +26,7 @@ public class huffTeste {
 		
 		for(int i=0;i<texto.length();i++){
 			j = (int)(texto.charAt(i));
-			textBin+= Integer.toBinaryString(j);
+			textBin+= toBinary(j, 8);
 		}
 		
 		return textBin;
@@ -113,7 +124,7 @@ public class huffTeste {
 		System.out.println("========================================================================================================\n");
 		
 		//Ajuste do alfabeto
-		//enquanto não existir apenas 1 elemento no heap continuara somando os nos e adicionando o novo no no heap
+		//enquanto nï¿½o existir apenas 1 elemento no heap continuara somando os nos e adicionando o novo no no heap
 		int tamHeap = alphabetSize-1;		
 		while(tamHeap > 0) {
 				
@@ -154,7 +165,8 @@ public class huffTeste {
 		lista.impHuff(lista, s);
 		System.out.println("");
 		lista.imprimir(lista);
-
+		
+		ListSymbolController.writeListSymbols(lista.generateList(lista));
 	}
 }
 

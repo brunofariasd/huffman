@@ -1,0 +1,1 @@
+[{"symbol":"C","code":"1111"},{"symbol":"D","code":"1110"},{"symbol":"R","code":"110"},{"symbol":"B","code":"10"},{"symbol":"A","code":"0"}]

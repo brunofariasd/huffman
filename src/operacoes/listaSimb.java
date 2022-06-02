@@ -1,5 +1,9 @@
 package operacoes;
 
+import java.util.ArrayList;
+
+import models.Symbol;
+
 public class listaSimb {
 	
 	char simbolo;
@@ -60,6 +64,19 @@ public class listaSimb {
 		
 		}
 		return null;
+	}
+	
+	public ArrayList<Symbol> generateList(listaSimb l) {
+		
+		ArrayList<Symbol> listSymbols = new ArrayList<>();
+		
+		listaSimb p;
+		
+		for (p = l; p.code != null; p = p.prox) {
+			Symbol newItem = new Symbol(String.valueOf(p.simbolo), p.code);
+			listSymbols.add(newItem);
+		}
+		return listSymbols;
 	}
 	
 	public listaSimb remover(listaSimb l, char v) {
